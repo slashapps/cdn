@@ -6099,7 +6099,11 @@
                         } else if (rule.queryType == '1' && rule.specialcontain && (rule.operator == 'contains' || rule.operator == 'not_contains')) {
                             ruleExpression = getCustSpecialContain(value);
                         } else if (rule.queryType == '1') {
-                            ruleExpression = field + ' ' + sqlFn(value);
+                            var fieldValue = sqlFn(value);
+                            if (rule.type == "datetime") { // Added by Alon 23/05/25
+                                fieldValue = fieldValue.split("T").join(" "); // Change '2024-12-06T13:56' to '2024-12-06 13:56'
+                            }
+                            ruleExpression = field + ' ' + fieldValue;
                         }
 
                         /**
