@@ -1807,7 +1807,7 @@
                 */
                 var imagesFolder = "";
                 if (typeof Admin_Global != undefined && typeof Admin_Global.adminVars != undefined) {
-                    imagesFolder = Admin_Global.AdminVars.imagesFolder;
+                    imagesFolder = Admin_Global.adminVars.imagesFolder;
                 } else if (typeof Admin_3_0 != undefined) {
                     imagesFolder = Admin_3_0.AdminVars.imagesFolder;
                 }
