@@ -1805,12 +1805,12 @@
                     .find(QueryBuilder.selectors.error_container).eq(0)
                     .attr('title', errorMessage).text(errorMessage);
                 */
-               var imagesFolder = "";
-               if (typeof Admin_4_0 != undefined) {
-                imagesFolder = Admin_4_0.AdminVars.imagesFolder;
-               } else if (typeof Admin_3_0 != undefined) {
-                imagesFolder = Admin_3_0.AdminVars.imagesFolder;
-               }
+                var imagesFolder = "";
+                if (typeof Admin_Global != undefined && typeof Admin_Global.adminVars != undefined) {
+                    imagesFolder = Admin_Global.AdminVars.imagesFolder;
+                } else if (typeof Admin_3_0 != undefined) {
+                    imagesFolder = Admin_3_0.AdminVars.imagesFolder;
+                }
                 node.$el.addClass('has-error').attr('data-error_type', node.error[0])
                 .find(QueryBuilder.selectors.error_container).eq(0)
                 .attr('title', errorMessage).html("<img title='"+errorMessage+"' src='"+ imagesFolder + "icons/16x16/action_buttons/alert_red.png" +"' height='16' width=16' />");
